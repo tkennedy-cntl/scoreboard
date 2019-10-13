@@ -51,7 +51,7 @@ h1 {
 }
 
 
-.team-1-score, .team-2-score {
+.team-1-score, .team-2-score, .team-1-selection {
   text-align: center;
   font-size: 5rem;
 }
