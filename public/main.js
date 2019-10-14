@@ -5,20 +5,35 @@
 	// Setting starting scores in javascript memory to 0
 	let teamOneScore = 0
 	let teamTwoScore = 0
-	let teamOneSelection = " "
+  let teamOneSelection = " "
   let teamTwoSelection = " "
+
+
 
 	// Setting Team One Score Text to 0 from 10
 	const teamOneScoreText = document.querySelector('.team-1-score')
 	teamOneScoreText.textContent = teamOneScore
-	
 
 	// creating a function to add 1 to the score and returning new score value Team One
 	const teamOneAddOne = () => {
 	  teamOneScore += 1
 	  teamOneScoreText.textContent = teamOneScore
+    }
    
-	  }
+   // Setting Team Two Score Text to 0 from 10
+	const teamTwoScoreText = document.querySelector('.team-2-score')
+	teamTwoScoreText.textContent = teamTwoScore
+
+	// creating a function to add 1 to the score and returning new score value Team One
+	const teamTwoAddOne = () => {
+	  teamTwoScore += 1
+	  teamTwoScoreText.textContent = teamTwoScore
+    }
+    
+
+
+
+
   // setting team one selection to display and store in teamOneSelectionText
   const teamOneSelectionText = document.querySelector('.team-1-selection')
     teamOneSelectionText.textContent = teamOneSelection 
@@ -26,13 +41,20 @@
   // setting team two selection to display and store in teamTwoSelectionText 
   const teamTwoSelectionText = document.querySelector('.team-2-selection')
     teamTwoSelectionText.textContent = teamTwoSelection 
+  
     
+
 // adding Rock to team one selection
   const teamOneSelectionRock = () => {
       teamOneSelection += "Rock"
       teamOneSelectionText.textContent = teamOneSelection
       console.log('teamOneSelectionRock')
+      if (teamOneSelection == "Rock" && teamTwoSelection == "Scissors") {
+      teamOneScore += 1
+      teamOneScoreText.textContent = teamOneScore
+      }
   }
+  
   // adding Paper to team one selection
   const teamOneSelectionPaper = () => {
     teamOneSelection += "Paper"
@@ -44,6 +66,7 @@
    teamOneSelection += "Scissors"
    teamOneSelectionText.textContent = teamOneSelection
    console.log('teamOneSelectionScissors')
+  
 }
 
 
@@ -59,7 +82,7 @@
     teamTwoSelectionText.textContent = teamTwoSelection
     console.log('teamTwoSelectionPaper')
 }
-// adding Scissors to team one selection
+// adding Scissors to team two selection
   const teamTwoSelectionScissors = () => {
    teamTwoSelection += "Scissors"
    teamTwoSelectionText.textContent = teamTwoSelection
@@ -68,19 +91,19 @@
 
 
 
-// add 1 to team one score if team one has Rock and team two has Scissors
-const RockPaperWin = ()  => {
-if (teamOneSelection === "Rock" && teamTwoSelection === "Scissors") {
-  teamOneScore += 1
-  teamOneScoreText.textContent = teamOneScore
-}
-}
+
+
+  
+  
+
+
 
 
 
 
 	// creating main function that is called when script tag loads
 	const main = () => {
+
 
     // telling team 1 rock button to listen for a click and run teamOneSelectionRock
     document.querySelector('button.team-1-rock-button').addEventListener('click', teamOneSelectionRock)
